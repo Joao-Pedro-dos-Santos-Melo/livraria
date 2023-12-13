@@ -3,29 +3,25 @@ package com.example.livraria.controller;
 import com.example.livraria.entity.Author;
 import com.example.livraria.service.AuthorService;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Log4j2
-@Controller
+@RestController
 @AllArgsConstructor
-public class LivrariaController {
+@RequestMapping("/api/author")
+public class AuthorController {
 
     private final AuthorService service;
 
     @GetMapping("/")
-    public String getHome() {
-        return "home";
+    public ResponseEntity<List<Author>> findAllAuthors() {
+        List<Author> authors = service.getAllAuthors();
+        return ResponseEntity.ok(authors);
     }
 
-    @GetMapping("/authors")
-    public String author(Model model) {
-        List<Author> authors = service.getAllAuthors();
-        model.addAttribute("authors", authors);
-        return "authors";
-    }
+
 }
