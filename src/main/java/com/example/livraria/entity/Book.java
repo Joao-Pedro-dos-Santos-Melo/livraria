@@ -2,6 +2,7 @@ package com.example.livraria.entity;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Setter
@@ -10,8 +11,11 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Livro implements Serializable {
+@Table(schema = "db", name = "book")
+public class Book implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String title;
@@ -20,5 +24,7 @@ public class Livro implements Serializable {
 
     private Integer pages;
 
+    @ManyToOne
+    @JoinColumn(name = "author_id")
     private Author author;
 }

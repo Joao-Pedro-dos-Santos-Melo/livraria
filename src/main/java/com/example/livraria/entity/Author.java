@@ -1,11 +1,8 @@
 package com.example.livraria.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.*;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -28,6 +25,7 @@ public class Author implements Serializable {
 
     private String nationality;
 
-    private List<Livro> livros;
+    @OneToMany(mappedBy = "author")
+    private List<Book> books;
 
 }
