@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Author</title>
+</head>
+<body>
+<header>
+  <h1>Show Auhtor</h1>
+</header>
+<main>
+  <table>
+    <tr>
+      <th>Firs Name</th>
+      <th>Last Name</th>
+      <th>Nationality</th>
+
+    </tr>
+    <tr th:object="${author}">
+      <td><span th:text="${author.firstName}"></span></td>
+      <td><span th:text="${author.lastName}"></span></td>
+      <td><span th:text="${author.nationality}"></span></td>
+    </tr>
+  </table>
+
+  <!-- SHOW THE POSTS -->
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Publication Year</th>
+      <th>Pages</th>
+    </tr>
+    <tr th:each="book : ${author.books}">
+      <td><span th:text="${book.title}"></span></td>
+      <td><span th:text="${book.publicationYear}"></span></td>
+      <td><span th:text="${book.pages}"></span></td>
+    </tr>
+  </table>
+
+  <form th:action="@{../api/author/delete/{id}(id=${author.id})}" method="delete">
+    <button type="submit">Delete</button>
+  </form>
+</main>
+</body>
+</html>

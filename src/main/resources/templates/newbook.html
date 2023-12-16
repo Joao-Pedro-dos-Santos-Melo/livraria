@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Book</title>
+</head>
+<body>
+    <header>
+        <h1>New Book</h1>
+    </header>
+
+    <main>
+        <form th:action="@{/book}" th:object="${book}" method="post">
+            <label>
+                Title:
+                <input type="text" id="title" th:field="*{title}"/>
+            </label>
+            <br/>
+            <label>
+                Publication Year:
+                <input type="number" id="publicationYear" th:field="*{publicationYear}"/>
+            </label>
+            <br/>
+            <label>
+                Pages:
+                <input type="number" id="pages" th:field="*{pages}"/>
+            </label>
+            <br/>
+            <label>
+                Id Author:
+                <input type="number" id="idAuthor" th:field="*{idAuthor}"/>
+            </label>
+            <br/>
+            <button>Cadastrar</button>
+        </form>
+    </main>
+
+</body>
+</html>

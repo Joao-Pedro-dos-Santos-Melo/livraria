@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Livraria</title>
+    <title>Library</title>
 </head>
 <body>
     <header>
-        <h1>Blog</h1>
+        <h1>Library</h1>
     </header>
     <main>
-        <ul>
-            <li>User</li>
-            <li>Post</li>
-            <li>Comment</li>
-        </ul>
+        <form th:action="@{/authors}" method="get">
+            <button>Authors</button>
+        </form>
+        <form th:action="@{/author}" method="get">
+            <button>New Author</button>
+        </form>
+        <form th:action="@{/books}" method="get">
+            <button>Books</button>
+        </form>
+        <form th:action="@{/book}" method="get">
+            <button>New Book</button>
+        </form>
+
     </main>
 </body>
 </html>

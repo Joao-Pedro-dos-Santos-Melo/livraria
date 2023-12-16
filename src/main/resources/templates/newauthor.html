@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New author</title>
+</head>
+<body>
+<header>
+  <h1>New author</h1>
+</header>
+
+  <main>
+    <form th:action="@{/author}" th:object="${author}" method="post">
+      <label>
+        First Name:
+        <input type="text" id="firstName" th:field="*{firstName}"/>
+      </label>
+      <br/>
+      <label>
+        Last Name:
+        <input type="text" id="lastName" th:field="*{lastName}"/>
+      </label>
+      <br/>
+      <label>
+        Nationality:
+        <input type="text" id="nationality" th:field="*{nationality}"/>
+      </label>
+      <br/>
+      <button>Cadastrar</button>
+    </form>
+  </main>
+</body>
+</html>
